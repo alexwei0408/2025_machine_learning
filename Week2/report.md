@@ -31,4 +31,5 @@ The following picture is the results of tranning.
 <img src="https://raw.githubusercontent.com/alexwei0408/2025_machine_learning/refs/heads/main/week2/image/error.png" alt="LWLR with Uniform vs Chebyshev Nodes" width="450">
 
 iii)Error  
-a)Means Square Error: By using $MSE=\frac{1}{N}\sum_{i=1}^{N}\left( \hat{f}(x_{i})-f(x_{i}) \right)^{2}$, then we get MSE=1.165* $10^{-1}$ for Uniform Nodes, and 1.197* $10^{-2}$ for cheyshev of the first kind.
+a)Means Square Error: By using $MSE=\frac{1}{N}\sum_{i=1}^{N}\left( \hat{f}(x_{i})-f(x_{i}) \right)^{2}$,  
+then we get $MSE=1.165* 10^{-1}$ for Uniform Nodes, and $1.197* 10^{-2}$ for cheyshev of the first kind.
