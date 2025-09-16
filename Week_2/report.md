@@ -30,7 +30,7 @@ ii)Node Selection
 I have choosed uniform nodes and chebyshev nodes of the first kind be my trainning points with the number of tranning points is 150.   
 The following picture is the results of tranning.  
 <img src="https://raw.githubusercontent.com/alexwei0408/2025_machine_learning/refs/heads/main/Week_2/image/results.png" alt="LWLR with Uniform vs Chebyshev Nodes" width="450">
-<img src="https://raw.githubusercontent.com/alexwei0408/2025_machine_learning/refs/heads/main/Week_2/image/results.png" alt="LWLR with Uniform vs Chebyshev Nodes" width="450">  
+<img src="https://raw.githubusercontent.com/alexwei0408/2025_machine_learning/refs/heads/main/Week_2/image/error.png" alt="LWLR with Uniform vs Chebyshev Nodes" width="450">  
 <u>a)Obsevertion</u>  
 Both uniform nodes and chebyshev of the error near the boundaries is small, but at x=0, the approximation is not good.  
 <u>b)How to improve</u>  
