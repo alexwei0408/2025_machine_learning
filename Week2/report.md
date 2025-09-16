@@ -23,3 +23,7 @@ The prediction at $x_{q}$ is
 $$
 \hat{y}\left( x_{q} \right)=\theta\left( x_{q} \right)^{\top}x_{q}
 $$
+
+ii)Node Selection  
+I have choosed uniform nodes and chebyshev nodes of the first kind be my trainning points. The following picture is the results of tranning.  
+![My image](https://raw.githubusercontent.com/alexwei0408/2025_machine_learning/refs/heads/main/week2/image/results.png)
