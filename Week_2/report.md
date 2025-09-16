@@ -39,7 +39,7 @@ First we try to change the number of tranning points to 300. Then let $\tau$ bec
 <img src="https://raw.githubusercontent.com/alexwei0408/2025_machine_learning/refs/heads/main/Week_2/image/3.png" alt="LWLR with Uniform vs Chebyshev Nodes" width="300">
 <img src="https://raw.githubusercontent.com/alexwei0408/2025_machine_learning/refs/heads/main/Week_2/image/1.png" alt="LWLR with Uniform vs Chebyshev Nodes" width="300">  
 <u>Conclusion</u>  
-The parameter $/tau$ controls the degree of smoothness of the LWLR. When $/tau$ is small, the model can accurately track the rapid changes of the Runge function at $x=0$.  
+The parameter $\tau$ controls the degree of smoothness of the LWLR. When $\tau$ is small, the model can accurately track the rapid changes of the Runge function at $x=0$.  
 iii)Error  
 a)Means Square Error: By using $MSE=\frac{1}{N}\sum_{i=1}^{N}\left( \hat{f}(x_{i})-f(x_{i}) \right)^{2}$,  
 then we get $MSE=1.250* 10^{-2}$ for Uniform Nodes, and $MSE=1.197* 10^{-2}$ for cheyshev of the first kind.
