@@ -5,5 +5,5 @@ $$
 f(x)=\frac{1}{1+25x^{2}},x\in \left[-1,1\right]
 $$  
 
-<u>What algorithms used for approximate</u>  
+++What algorithms used for approximate++
 
