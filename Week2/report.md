@@ -25,5 +25,5 @@ $$
 $$
 
 ii)Node Selection  
-I have choosed uniform nodes and chebyshev nodes of the first kind be my trainning points. The following picture is the results of tranning.  
-![My image](https://raw.githubusercontent.com/alexwei0408/2025_machine_learning/refs/heads/main/week2/image/results.png)
+I have choosed uniform nodes and chebyshev nodes of the first kind be my trainning points with the number of tranning points is 500. The following picture is the results of tranning.  
+<img src="https://raw.githubusercontent.com/alexwei0408/2025_machine_learning/refs/heads/main/week2/image/results.png" alt="LWLR with Uniform vs Chebyshev Nodes" width="600">
