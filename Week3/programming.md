@@ -3,11 +3,12 @@ Find a model $\hat{f}$ to approximate $f(x)=\frac{1}{1+25x^{2}}$; $f^{'}(x)= -\f
 
 ## Tranning model 
 1 hidden layer ,tanh neural network.  
-Why we use this model? Since runge function is smooth for $x \in [-1,1]$, by the [lemma](),then we can find a function $\hat{f}$ to approximate it.
+Why we use this model?  
+Since runge function is smooth for $x \in [-1,1]$, by the [lemma](https://github.com/alexwei0408/2025_machine_learning/blob/main/Week3/report.md),then we can find a function $\hat{f}$ to approximate it.  
 Define $\hat{f}(x)= a_{0}+ \sum_{j=1}^{m}v_{j}tanh(w_{j}x+b_{j})$; $\frac{d \hat{f}}{dx}=\sum_{j=1}^{m}v_{j}(1-tanh^{2}(w_{j}x+b_{j}))w_{j}$， with $m=30$
 
 ## Data
-1) Choose N trainning point by using unifrom nodes.
+1) Choose N trainning point $x_{i}$ by using unifrom nodes.
 2) compute $y_{i} = f(x_{i})$ and $d_{i}=f'(x_{i})$.
 
 ## Loss
