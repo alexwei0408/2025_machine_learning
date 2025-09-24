@@ -20,13 +20,17 @@ For any integer s, we can build a shallow tanh network of width $\frac{s+1}{2}$ 
 ## Example  
 If $s=3$, then we can approximate both $x$ and $x^{3}$
 
-
+---
 ## (Lemma 3.2)
 Let $k \in \mathbb{N}, s \in 2\mathbb{N}-1$ and  $M>0$. For every $\epsilon >0$, there exists a shallow tanh neural network $\Psi_{s,\epsilon}:[-M,M] \to \mathbb{R}^{s}$ of width $\frac{3(s+1)}{2}$ such that
 
 $$
 \max_{\substack{p \le s}} \left\| f_{p}-(\Psi_{s,\epsilon})_{W^{k,\infty}} \right\|\le \epsilon
 $$
+
+## Statement
+When we use the binomial combination of shifted tanh function, we will get a function that is very close to $t^{p}$ evevrywhere on the interval, and its derivatives up to oerder k are also close.
+
 
 ---
 Conclusion: Lemma3.1-3.2 show that tanh networks can build monomials $x^{p}$ accurately.
