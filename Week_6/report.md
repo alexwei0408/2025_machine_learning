@@ -1,5 +1,5 @@
 
-1)
+a) [code](https://github.com/alexwei0408/2025_machine_learning/blob/main/Week_6/GDA.py)  
 b)Problem setting.
   We want to classify each grid location by its longtitde_latitude feature $x \in \mathbb{R}^ {2}$ into
 
