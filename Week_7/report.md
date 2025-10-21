@@ -1,7 +1,7 @@
 ## 主要目標: 學習 PDF $p(x)$
 
-想法：對於 Score-Based generative model來說就是學習pdf，但是我們很難建構出一個擁有良好性質的pdf（i.$p(x)>0$ ;ii. $\int_{\mathbb{R}}p(x)dx=1$）
-所以我們改來學習Score function。假設$p(x;\theta)=\frac{e^{q(x;\theta)}}{z(\theta)}$，得出 $\log(p;\theta)=q(x;\theta)-\log z(\theta)$，
+想法：對於 Score-Based generative model來說就是學習pdf，但是我們很難建構出一個擁有良好性質的pdf（i. $p(x)>0$ ;ii. $\int_{\mathbb{R}}p(x)dx=1$ ）
+所以我們改來學習Score function。假設 $p(x;\theta)=\frac{e^{q(x;\theta)}}{z(\theta)}$，得出 $\log(p;\theta)=q(x;\theta)-\log z(\theta)$，
 
 $$
 S(x)=\nabla_{x} \log(p(x))=\nabla_{x} \log q(x;\theta)。
@@ -14,7 +14,7 @@ $$
 L_{ISM}(\theta)=\mathbb{E}_{x\sim p(x)}||S(x;\theta)-\nabla_{x}\log p(x)||^{2}。
 $$
 
-但是對於 $\nabla_{x} \log p(x)$，我們仍是不知道，所以通過以下有幾個方法能學習$\nabla_{x} \log p(x)$  
+但是對於 $\nabla_{x} \log p(x)$，我們仍是不知道，所以通過以下有幾個方法能學習 $\nabla_{x} \log p(x)$。  
 
 
 i）我們通過一些計算把Loss Function等價的寫成
@@ -25,7 +25,7 @@ $$
 
 我們把其稱為 Implicit Score Matching。
 
-Remark
+Remark  
 a）使用ISM，我們不需要知道normalize constant Z，因為 $\nabla_{x} \log Z=0$。  
 b）直接作用於原始資料 $p(x)$。  
 c）ISM在高緯度計算瓶頸（eg如果資料模型是 $10^{5}x10^{5},我們就需要計算這麼多次$），因而有人提出方法（ii）DSM。    
@@ -44,7 +44,7 @@ $$
 \end{aligned}
 $$
 
-定義 $p_{\sigma}(x)= \int_{\mathbb{R^{d}}}p(x|x_{0})p_{0}(x_{0})dx_{0}$，我們把其稱作nosiy score function。
+定義 $p_{\sigma}(x)= \int_{\mathbb{R^{d}}}p(x|x_{0})p_{0}(x_{0})dx_{0}$，我們把其稱作noisy score function。
 
 $$
 L_{DSM}(\theta) = \mathbb{E}_{x_0\sim p_0(x_0)}\mathbb{E}_{x|x_0\sim p(x|x_0)}\left[\|S_\sigma(x;\theta)-\nabla_{x}\log p(x|x_0)\|^2\right],
@@ -54,7 +54,41 @@ $$
 
 最終我們要學習 $\nabla_{x} \log p(x)$，但是DSM是透過雜訊化後的分布空間學分數，進而間接逼近乾淨分布的資訊。  
 
-Remark
+Remark  
 a）設計已知 $p(x|x_{0})$ 使得目標 $\nabla_{x} \log p(x|x_{0})$ 能被訓練。  
-b） $\nabla_{x} \log p_{\sigma}(x)$ 與 $\nabla_{x} \log p(x|x_{0})$ ，兩者關係可以近似。
-c）模型學習的是從雜訊還原的方向，對於實作更為容易。
+b） $\nabla_{x} \log p_{\sigma}(x)$ 與 $\nabla_{x} \log p(x|x_{0})$ ，兩者關係可以近似。 
+c）模型學習的是從雜訊還原的方向，對於實作更為容易。  
+
+---
+
+我們透過上述方法學習了 $S(x)$ 後， 便可以使用SDE從噪聲生成樣本
+
+流程  
+1）抽取x來自高斯分佈。  
+2）將資料 $x_{0} \sim p_{data}$ 加噪至 $x$。反向過程從 $x$ 開始，沿著時間 $t=T$ 移回資料分佈。  
+3）沿著該方向移動配合少量隨機擾動，最終逼近資料分布。  
+
+```
+pseudo-code
+
+# 訓練完成後，使用 s_theta(x, t) 生成樣本
+
+# 1. 從最強雜訊開始
+x = sample_noise(shape = data_shape)  # e.g., x ~ Normal(0, I)
+
+# 2. 逆時間循環 t 从 T → 0
+for t = T, T−Δt, T−2Δt, …, Δt:
+    sigma_t = compute_noise_scale(t)
+    
+    # 使用模型預測分數
+    score_pred = s_theta(x, t)
+    
+    # 更新樣本（例如用 Euler–Maruyama 法則，簡化版）
+    x = x + step_size * score_pred \
+        + sqrt(2 * step_size) * noise()
+    
+    # （可選）加上雜訊縮小／正則化項
+    
+# 3. 最後獲得 x_0 ≈ 來自資料分布的樣本
+return x
+```
