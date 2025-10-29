@@ -42,10 +42,10 @@ $$
 
 通過一般式能看出SDE是以布x朗運動為雜訊驅動的動態模型，其解具有隨機過程性質。我們能拆成兩項來理解這個這個一般式，分別是  
 i） $f(x_{t},t)dt$ 系統中可預測的部分，代表 $x_{t}$s隨時間變化的期望路徑，被稱做Drift Term。  
-ii） $G(x_{t},t)dW_{t}$ 系統中隨機部分，代表了系統的noise，被稱作Diffusion Term。
+ii） $G(x_{t},t)dW_{t}$ 系統中隨機部分，代表了系統的noise，被稱作Diffusion Term。若這項為零時，則系統簡化成ODE形式
 
 特點： 給定一個IVP，通常ODE在解完後會給出一個唯一解，但是SDE的解是隨機過程 $x_{t}$,每步的增量 $\Delta W_{s}\sim \mathcal{N}(0,\Delta t)$不同，因此會產生不同路徑，故最後生成的解會像以下形式，  
-<img width="782" height="513" alt="{9B9976A4-61DC-4515-A6A2-AEEBF7A1EBFA}" src="https://github.com/user-attachments/assets/11a489fa-9bb1-4683-bc8b-0a323f82c84b" />
+<img width="782" height="513" alt="{9B9976A4-61DC-4515-A6A2-AEEBF7A1EBFA}" src="https://github.com/user-attachments/assets/11a489fa-9bb1-4683-bc8b-0a323f82c84b" />  
 
-
+如何應用在diffusion model：SDE在生成模型就是一個反向的過程，從很多noise的圖片逆向走出一條路徑回到起點。
 
