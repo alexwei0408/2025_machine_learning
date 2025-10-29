@@ -48,4 +48,7 @@ ii） $G(x_{t},t)dW_{t}$ 系統中隨機部分，代表了系統的noise，被�
 <img width="782" height="513" alt="{9B9976A4-61DC-4515-A6A2-AEEBF7A1EBFA}" src="https://github.com/user-attachments/assets/11a489fa-9bb1-4683-bc8b-0a323f82c84b" />  
 
 如何應用在diffusion model：SDE在生成模型就是一個反向的過程，從很多noise的圖片逆向走出一條路徑回到起點。
+---
+## 3） Some intersted problem
+之前我們學習的diffusion model的正向過程定義了pdf，而我們所要學習的目標就是 $\nabla_{x} \lg p$,而這星期所學的sde就是在做model的逆向過程，但是SDE抽樣會得到隨機樣本路徑，要如何確定逆向過程生成圖片是原始的score function。
 
